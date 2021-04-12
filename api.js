@@ -8,9 +8,7 @@ async function getData(urlSuffix){
     console.log('full url: ', url)
     
     const response = await fetch(url)
-    
     const data = await response.json()
-    
     let drinks = data.drinks
     
     drinks.forEach(d => {
