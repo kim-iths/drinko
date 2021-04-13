@@ -160,3 +160,7 @@ body {
     object-fit: cover;
     filter: blur(6px);
 }
+
+#drink-info-content p {
+    color: white;
+}
