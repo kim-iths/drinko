@@ -1,15 +1,24 @@
-body {
-    margin: 0px;
-    background: darkslategrey;
-}
+/* 
+colors:
+dark: #3c1b1b
+slightlydark: #4f2425
+accent1: #e2c34a
+acccent2: #b94626
+ */
 
-#header, #footer {
-    background: darkslategrey;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ 
+ body {
+     margin: 0px;
+     background: #3c1b1b;
+     font-family: 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    #header, #footer {
+    background: #3c1b1b;
     font-size: 11pt;
     display: flex;
     height: 100px;
-    width: 100%;
+    width: auto;
     align-items: center;
     padding-left: 16px;
     justify-content: center;
@@ -36,12 +45,12 @@ body {
 }
 
 .nav-item-current {
-    background: teal;
+    background: darkred;
     color: white;
 }
 
 #header a:hover {
-    background: rgb(100, 130, 130);
+    background: #b94626;
     color: white;
 }
 
@@ -54,9 +63,9 @@ body {
 }
 
 #content {
-    width: 100%;
+    width: auto;
     padding: 8px;
-    background: rgb(60, 90, 90);
+    background: #4f2425;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -70,14 +79,20 @@ body {
     }
 }
 
+@media only screen and (max-width: 600px){
+    #content {
+        grid-template-columns: repeat(2, 156px);
+    }
+}
+
 .drink-card {
     color: white;
     padding: 8px;
     border-radius: 10%;
-    background: darkslategrey;
+    background: #3c1b1b;
     height: 200px;
     width: 140px;
-
+    justify-self: center;
     display: flex;
     flex-direction: column;
 }
@@ -90,7 +105,6 @@ body {
 .drink-card p {
     margin: auto;
     position: relative;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 11pt;
     text-align: center;
     margin-left: 4px;
@@ -125,7 +139,7 @@ body {
 }
 
 #search-button:hover {
-    background: teal;
+    background: #b94626;
 }
 
 .fa-search {
@@ -136,31 +150,70 @@ body {
     width: 100%;
     text-align: center;
     color: rgb(150, 180, 180);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #drink-info {
-    background: rgb(60, 90, 90);
+    background: #4f2425;
     display: flex;
     flex-direction: column;
-    padding: 8px;
+    padding-top: 1em;
 }
 
 #image-showcase {
-    height: 516px;
+    height: 500px;
     align-self: center;
     z-index: 1;
 }
 
-#image-background {
+#background-wrapper {
+    align-self: center;
     position: absolute;
-    z-index: 0;
-    width: 100%;
+    width: 96%;
     height: 500px;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+#image-background {
+    width: 100%;
+    z-index: 0;
     object-fit: cover;
     filter: blur(6px);
+    transform: scale(1.1);
+}
+
+#drink-info-content {
+    box-sizing: border-box;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+
+    border-radius: 1em;
+    background: rgba(0, 0, 0, .15);
+    color: white;
+    width: 96%;
+    align-self: center;
+}
+
+#drink-info h3 {
+    font-size: 18pt;
+}
+
+#drink-info-content li {
+    color: darkgray;
 }
 
 #drink-info-content p {
-    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: darkgray;
+    font-size: 11pt;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1em;
 }

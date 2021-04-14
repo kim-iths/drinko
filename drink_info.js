@@ -7,6 +7,9 @@ async function getDrinkInfo(){
     let image = document.getElementById('image-showcase')
     let imageBackground = document.getElementById('image-background')
     let content = document.getElementById('drink-info-content')
+    let ingredientList = document.getElementById('ingredient-list')
+    let drinkNameElement = document.getElementById('drink-name')
+    let instructionsElement = document.getElementById('instructions')
 
     const params = new URLSearchParams(document.location.search);
     const id = params.get("id");
@@ -27,8 +30,11 @@ async function getDrinkInfo(){
     let category = drink.strCategory
     let alcoholic = drink.strAlcoholic
     let glass = drink.strGlass
+    let instructions = drink.strInstructions
     let ingredients = ['']
     let measures = ['']
+    
+    let fullIngredientStrings = ['']
 
     //get all ingredients and measures for the drink
     for(let i = 1; i <= 15; i++){
@@ -44,21 +50,33 @@ async function getDrinkInfo(){
         }
     }
 
-    for(let i = 0; i < ingredients.length; i++){
-        console.log(measures[i] + ingredients[i])
-    }
 
 
+    
+    
     //set and create elements with drink info
     image.setAttribute('src', imageUrl)
     image.setAttribute('alt', drinkName)
     imageBackground.setAttribute('src', imageUrl)
     imageBackground.setAttribute('alt', drinkName)
-
-    let drinkNameElement = document.createElement('p')
-
-    content.appendChild(drinkNameElement)
+    
     drinkNameElement.innerText = drinkName
+    instructionsElement.innerText = instructions
+    
+    for(let i = 1; i < ingredients.length; i++){
+        if(measures[i] !== null){
+            fullIngredientStrings[i] = measures[i].trim() + ' ' + ingredients[i]
+            console.log(measures[i].trim() + ' ' + ingredients[i])
+        } else {
+            fullIngredientStrings[i] = ingredients[i]
+            console.log(ingredients[i])
+        }
 
+        let li = document.createElement('li')
+        li.innerText = fullIngredientStrings[i]
 
+        ingredientList.appendChild(li)
+
+    }
+    
 }
