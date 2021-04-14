@@ -1,9 +1,11 @@
 let header = document.querySelector('#header')
 let footer = document.querySelector('#footer')
 
-header.innerHTML = '<a href="index.html" id="home" class="nav-item">home</a>' 
+header.innerHTML = '<div id="nav-container">'
++ '<a href="index.html" id="home" class="nav-item">home</a>' 
 + '<a href="one.html" id="one" class="nav-item">one</a>'
-+ '<a href="two.html" id="two" class="nav-item">two</a>'
++ '<a href="" id="two" class="nav-item">two</a>'
++ '</div>'
 + '<div id="search-field">'
 + '<input type="text" id="input" placeholder="Search">'
 + '<button id="search-button"><i class="fas fa-search"></i></button>'

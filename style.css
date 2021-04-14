@@ -13,7 +13,7 @@ acccent2: #b94626
      font-family: 'Lucida Sans', Arial, sans-serif;
     }
     
-    #header, #footer {
+#header, #footer {
     background: #3c1b1b;
     font-size: 11pt;
     display: flex;
@@ -21,7 +21,12 @@ acccent2: #b94626
     width: auto;
     align-items: center;
     padding-left: 16px;
+    padding-right: 16px;
     justify-content: center;
+}
+
+#nav-container {
+    display: flex;
 }
 
 #header a {
@@ -82,6 +87,10 @@ acccent2: #b94626
 @media only screen and (max-width: 600px){
     #content {
         grid-template-columns: repeat(2, 156px);
+    }
+
+    #header {
+        flex-direction: column;
     }
 }
 
@@ -179,7 +188,7 @@ acccent2: #b94626
     z-index: 0;
     object-fit: cover;
     filter: blur(6px);
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 #drink-info-content {
